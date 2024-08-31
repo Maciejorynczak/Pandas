@@ -11,6 +11,14 @@ hr_data['DOB'] = pd.to_datetime(hr_data['DOB'], errors='coerce')
 
 hr_data['Age'] = (pd.Timestamp("now") - hr_data['DOB']).dt.days / 365
 
+score_mapping = {
+    'Needs Improvement': 1,
+    'PIP': 2,
+    'Fully Meets': 3,
+    'Exceeds': 4
+}
+
+hr_data['PerformanceScore'] = hr_data['PerformanceScore'].map(score_mapping)
 
 #Zadanie 1
 plt.figure(figsize=(12, 8))
