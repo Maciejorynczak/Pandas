@@ -11,4 +11,11 @@ hr_data['DOB'] = pd.to_datetime(hr_data['DOB'], errors='coerce')
 
 hr_data['Age'] = (pd.Timestamp("now") - hr_data['DOB']).dt.days / 365
 
-print(hr_data)()
+
+#Zadanie 1
+plt.figure(figsize=(12, 8))
+sns.boxplot(x='ManagerName', y='PerformanceScore', data=hr_data)
+plt.xticks(rotation=90)
+plt.title('Performance Score by Manager')
+plt.show()
+print(hr_data.head())
